@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+export USER=root
 
 service ssh start
 

@@ -33,7 +33,7 @@ RUN echo '<?xml version="1.0" encoding="UTF-8"?>' > /root/.config/openbox/rc.xml
 
 RUN echo '#!/bin/sh' > /root/.vnc/xstartup && \
     echo 'xrdb $HOME/.Xresources' >> /root/.vnc/xstartup && \
-    echo 'openbox-session &' >> /root/.vnc/xstartup && \
+    echo 'tint2 & openbox-session &' >> /root/.vnc/xstartup && \
     echo 'sleep 1' >> /root/.vnc/xstartup && \
     echo 'openbox --reconfigure' >> /root/.vnc/xstartup && \
     chmod +x /root/.vnc/xstartup

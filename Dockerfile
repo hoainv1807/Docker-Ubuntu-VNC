@@ -9,6 +9,14 @@ RUN apt update && apt upgrade -y && \
     openssh-server proxychains4 imagemagick tesseract-ocr tini \
     && apt clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN apt install -y \
+    libnotify4 \
+    libnss3 \
+    libxss1 \
+    xdg-utils \
+    libsecret-1-0 \
+    libappindicator3-1
+
 RUN wget -O /tmp/wipter.deb https://github.com/hoainv1807/Docker-Ubuntu-XFCE-XRDP/releases/download/wipter/wipter.deb && \
      apt install /tmp/wipter.deb -y && apt install -f -y && \
      rm /tmp/wipter.deb

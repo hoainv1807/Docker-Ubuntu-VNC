@@ -16,11 +16,28 @@ RUN apt update && apt upgrade -y && \
     echo "ListenAddress 0.0.0.0" >> /etc/ssh/sshd_config && \
     echo "ListenAddress ::" >> /etc/ssh/sshd_config && \
     echo "root:toor" | chpasswd && \
-    echo '#!/bin/sh\nxrdb $HOME/.Xresources\nopenbox-session &' > /root/.vnc/xstartup && \
-    chmod +x /root/.vnc/xstartup && \
     apt-get autoclean && apt-get autoremove -y && apt-get autopurge -y && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN mkdir -p /root/.vnc /root/.config/openbox
+RUN echo '<?xml version="1.0" encoding="UTF-8"?>' > /root/.config/openbox/rc.xml && \
+    echo '<openbox_config>' >> /root/.config/openbox/rc.xml && \
+    echo '  <keyboard>' >> /root/.config/openbox/rc.xml && \
+    echo '    <keybind key="C-A-T">' >> /root/.config/openbox/rc.xml && \
+    echo '      <action name="Execute">' >> /root/.config/openbox/rc.xml && \
+    echo '        <command>xterm</command>' >> /root/.config/openbox/rc.xml && \
+    echo '      </action>' >> /root/.config/openbox/rc.xml && \
+    echo '    </keybind>' >> /root/.config/openbox/rc.xml && \
+    echo '  </keyboard>' >> /root/.config/openbox/rc.xml && \
+    echo '</openbox_config>' >> /root/.config/openbox/rc.xml
+
+RUN echo '#!/bin/sh' > /root/.vnc/xstartup && \
+    echo 'xrdb $HOME/.Xresources' >> /root/.vnc/xstartup && \
+    echo 'openbox-session &' >> /root/.vnc/xstartup && \
+    echo 'sleep 1' >> /root/.vnc/xstartup && \
+    echo 'openbox --reconfigure' >> /root/.vnc/xstartup && \
+    chmod +x /root/.vnc/xstartup
+    
 COPY entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/entrypoint.sh
 

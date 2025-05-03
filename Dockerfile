@@ -6,7 +6,7 @@ RUN apt update && apt upgrade -y && \
     apt install -y sudo wget curl nano \
     tightvncserver openbox xterm dbus-x11 x11-xserver-utils xfonts-base \
     openssh-server proxychains4 imagemagick tesseract-ocr tini \
-    libnotify4 libnss3 libxss1 xdg-utils libsecret-1-0 \
+    gnome-keyring libnotify4 libnss3 libxss1 xdg-utils libsecret-1-0 \
     libappindicator3-1 libasound2t64 xautomation && \
     wget -O /tmp/wipter.deb https://github.com/hoainv1807/Docker-Ubuntu-XFCE-XRDP/releases/download/wipter/wipter.deb && \
     apt install -y /tmp/wipter.deb && apt install -f -y && rm /tmp/wipter.deb && \

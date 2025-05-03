@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt update && apt upgrade -y && \
     apt install -y sudo wget curl nano \
-    tightvncserver openbox xterm dbus-x11 x11-xserver-utils xfonts-base \
+    tightvncserver openbox tint2 xterm dbus-x11 x11-xserver-utils xfonts-base \
     openssh-server proxychains4 imagemagick tesseract-ocr tini \
     gnome-keyring libnotify4 libnss3 libxss1 xdg-utils libsecret-1-0 \
     libappindicator3-1 libasound2t64 xautomation && \

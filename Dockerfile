@@ -28,9 +28,15 @@ RUN echo '<?xml version="1.0" encoding="UTF-8"?>' > /root/.config/openbox/rc.xml
     echo '        <command>xterm</command>' >> /root/.config/openbox/rc.xml && \
     echo '      </action>' >> /root/.config/openbox/rc.xml && \
     echo '    </keybind>' >> /root/.config/openbox/rc.xml && \
+    echo '    <keybind key="F1">' >> /root/.config/openbox/rc.xml && \
+    echo '      <action name="MaximizeFull"/>' >> /root/.config/openbox/rc.xml && \
+    echo '    </keybind>' >> /root/.config/openbox/rc.xml && \
+    echo '    <keybind key="F2">' >> /root/.config/openbox/rc.xml && \
+    echo '      <action name="Iconify"/>' >> /root/.config/openbox/rc.xml && \
+    echo '    </keybind>' >> /root/.config/openbox/rc.xml && \
     echo '  </keyboard>' >> /root/.config/openbox/rc.xml && \
     echo '</openbox_config>' >> /root/.config/openbox/rc.xml
-
+    
 RUN echo '#!/bin/sh' > /root/.vnc/xstartup && \
     echo 'xrdb $HOME/.Xresources' >> /root/.vnc/xstartup && \
     echo 'tint2 & openbox-session &' >> /root/.vnc/xstartup && \

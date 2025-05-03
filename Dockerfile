@@ -14,7 +14,8 @@ RUN apt install -y \
     libxss1 \
     xdg-utils \
     libsecret-1-0 \
-    libappindicator3-1
+    libappindicator3-1 \
+    libasound2
 
 RUN wget -O /tmp/wipter.deb https://github.com/hoainv1807/Docker-Ubuntu-XFCE-XRDP/releases/download/wipter/wipter.deb && \
      apt install /tmp/wipter.deb -y && apt install -f -y && \

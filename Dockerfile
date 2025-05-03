@@ -1,11 +1,6 @@
-FROM ubuntu:24.04
+FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
-
-RUN apt update && \
-    apt install -y software-properties-common && \
-    add-apt-repository universe && \
-    apt update
     
 RUN apt update && apt upgrade -y && \
     apt install -y \

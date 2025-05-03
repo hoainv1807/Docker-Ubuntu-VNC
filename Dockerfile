@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 ENV DEBIAN_FRONTEND=noninteractive
     
@@ -6,9 +6,8 @@ RUN apt update && apt upgrade -y && \
     apt install -y \
     sudo wget curl nano tightvncserver openbox xterm \
     dbus-x11 x11-xserver-utils xfonts-base \
-    openssh-server proxychains4 imagemagick tesseract-ocr tini \
-    && apt clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
+    openssh-server proxychains4 imagemagick tesseract-ocr tini
+    
 RUN apt install -y \
     libnotify4 \
     libnss3 \

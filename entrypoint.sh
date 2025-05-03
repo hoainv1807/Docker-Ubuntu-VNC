@@ -1,11 +1,12 @@
 #!/bin/bash
 set -e
 export USER=root
+echo "root:${PASSWORD}" | chpasswd
 
 service ssh start
 
 if [ ! -f "/root/.vnc/passwd" ]; then
-    echo "vncpassword" | vncpasswd -f > /root/.vnc/passwd
+    echo "${PASSWORD}" | vncpasswd -f > /root/.vnc/passwd
     chmod 600 /root/.vnc/passwd
 fi
 

@@ -14,6 +14,7 @@ RUN apt update && apt upgrade -y && \
     libappindicator3-1 libasound2t64 xautomation && \
     wget -O /tmp/wipter.deb https://github.com/hoainv1807/Docker-Ubuntu-XFCE-XRDP/releases/download/wipter/wipter.deb && \
     apt install -y /tmp/wipter.deb && apt install -f -y && rm /tmp/wipter.deb && \
+    apt-get -y --fix-broken --no-install-recommends --no-install-suggests install && \
     mkdir -p /var/run/sshd /root/.vnc /root/.config/openbox && \
     sed -i 's/#Port 22/Port 22222/' /etc/ssh/sshd_config && \
     sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config && \

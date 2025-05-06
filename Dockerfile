@@ -3,15 +3,41 @@ FROM ubuntu:24.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt update && apt upgrade -y && \
-    apt install -y sudo wget curl nano \
-    tightvncserver openbox tint2 xterm dbus-x11 x11-xserver-utils xfonts-base \
-    util-linux iproute2 net-tools openssh-server proxychains4 imagemagick tesseract-ocr tini \
-    gnome-keyring libnotify4 libnss3 libxss1 xdg-utils libsecret-1-0 \
-    libgtk-3-0 libxcomposite1 libxcursor1 libxdamage1 libxi6 \
-    libxtst6 libxrandr2 libatk1.0-0 libcups2 libxinerama1 \
-    libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf2.0-0 libxshmfence1 \
-    libx11-xcb1 libgbm1 libdrm2 libxext6 fonts-liberation libdbus-glib-1-2 \
-    libappindicator3-1 libasound2t64 xautomation && \
+   RUN apt update && apt upgrade -y && \
+    apt install -y \
+    # ======= Nhóm tiện ích hệ thống =======
+    sudo wget curl nano gnupg gdebi dialog htop tini \
+    apt-transport-https ca-certificates uuid-runtime \
+    util-linux iproute2 net-tools openssh-server xdg-utils \
+    # --------------------------------------
+
+    # ======= Nhóm GUI Desktop & Window Manager =======
+    tightvncserver openbox tint2 xterm \
+    dbus-x11 x11-xserver-utils xfonts-base \
+    xautomation gnome-keyring libsecret-1-0 \
+    # -----------------------------------------------
+
+    # ======= Nhóm xử lý hình ảnh & OCR =======
+    imagemagick tesseract-ocr \
+    # ----------------------------------------
+
+    # ======= Nhóm thư viện hệ thống, đồ họa, GUI =======
+    libasound2t64 libatk-bridge2.0-0 libatk1.0-0 libatspi2.0-0 \
+    libc6 libcairo2 libcups2 libcurl4 libdbus-1-3 libdbus-glib-1-2 \
+    libexpat1 libgbm1 libglib2.0-0 libgtk-3-0 libgtk-3-bin libgtk-4-1 \
+    libnspr4 libnss3 libpango-1.0-0 libpangocairo-1.0-0 libudev1 libuuid1 \
+    libvulkan1 libgl1 libdrm2 libbsd0 \
+    # ---------------------------------------
+
+    # ======= Nhóm thư viện X11 & GUI nâng cao =======
+    libx11-6 libx11-xcb1 libxau6 libxcb1 libxcb-glx0 libxcb-icccm4 \
+    libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 \
+    libxcb-render0 libxcb-shape0 libxcb-shm0 libxcb-sync1 libxcb-util1 \
+    libxcb-xfixes0 libxcb-xinerama0 libxcb-xkb1 libxkbcommon0 libxkbcommon-x11-0 \
+    libappindicator3-1 libnotify4 libnotify-bin libxcomposite1 libxdamage1 \
+    libxext6 libxfixes3 libxrandr2 libxcursor1 libxi6 libxtst6 libxinerama1 \
+    libxss1 libxshmfence1 libgdk-pixbuf2.0-0 && \
+    # ----------------------------------------------
     wget -O /tmp/wipter.deb https://github.com/hoainv1807/Docker-Ubuntu-XFCE-XRDP/releases/download/wipter/wipter.deb && \
     apt install -y /tmp/wipter.deb && apt install -f -y && rm /tmp/wipter.deb && \
     apt-get -y --fix-broken --no-install-recommends --no-install-suggests install && \

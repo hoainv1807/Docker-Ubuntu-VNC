@@ -7,7 +7,8 @@ RUN apt update && apt upgrade -y && \
     # ======= Nhóm tiện ích hệ thống =======
     sudo wget curl nano gnupg gdebi dialog htop tini \
     apt-transport-https ca-certificates uuid-runtime \
-    util-linux iproute2 net-tools openssh-server xdg-utils proxychains4 \
+    util-linux iproute2 net-tools openssh-server xdg-utils \
+    iputils-ping proxychains4 \
     # --------------------------------------
 
     # ======= Nhóm GUI Desktop & Window Manager =======
@@ -33,7 +34,7 @@ RUN apt update && apt upgrade -y && \
     libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 \
     libxcb-render0 libxcb-shape0 libxcb-shm0 libxcb-sync1 libxcb-util1 \
     libxcb-xfixes0 libxcb-xinerama0 libxcb-xkb1 libxkbcommon0 libxkbcommon-x11-0 \
-    libappindicator3-1 libnotify4 libnotify-bin libxcomposite1 libxdamage1 \
+    libnotify4 libnotify-bin libxcomposite1 libxdamage1 \
     libxext6 libxfixes3 libxrandr2 libxcursor1 libxi6 libxtst6 libxinerama1 \
     libxss1 libxshmfence1 libgdk-pixbuf2.0-0 && \
     # ----------------------------------------------

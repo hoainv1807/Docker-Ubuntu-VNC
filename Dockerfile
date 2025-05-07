@@ -7,7 +7,7 @@ RUN apt update && apt upgrade -y && \
     # ======= Nhóm tiện ích hệ thống =======
     sudo wget curl nano gnupg gdebi dialog htop tini \
     apt-transport-https ca-certificates uuid-runtime \
-    util-linux iproute2 net-tools openssh-server xdg-utils \
+    util-linux iproute2 net-tools openssh-server xdg-utils proxychains4 \
     # --------------------------------------
 
     # ======= Nhóm GUI Desktop & Window Manager =======

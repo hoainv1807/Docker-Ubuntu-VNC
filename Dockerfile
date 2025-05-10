@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt upgrade -y && \
     apt install -y sudo wget curl nano \
     tightvncserver openbox tint2 xterm dbus-x11 x11-xserver-utils xfonts-base \
-    util-linux iptools-ping iproute2 net-tools openssh-server proxychains4 imagemagick tesseract-ocr tini \
+    util-linux iputils-ping iproute2 net-tools openssh-server proxychains4 imagemagick tesseract-ocr tini \
     gnome-keyring libnotify4 libnss3 libxss1 xdg-utils libsecret-1-0 \
     libgtk-3-0 libxcomposite1 libxcursor1 libxdamage1 libxi6 \
     libxtst6 libxrandr2 libatk1.0-0 libcups2 libxinerama1 \

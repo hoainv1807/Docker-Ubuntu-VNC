@@ -12,7 +12,7 @@ RUN apt update && apt upgrade -y && \
     libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf2.0-0 libxshmfence1 \
     libx11-xcb1 libgbm1 libdrm2 libxext6 fonts-liberation libdbus-glib-1-2 \
     libasound2t64 xautomation && \
-    wget -O /tmp/wipter.deb https://github.com/hoainv1807/Docker-Ubuntu-XFCE-XRDP/releases/download/wipter/wipter.deb && \
+    wget -O /tmp/wipter.deb https://provider-assets.wipter.com/latest/linux/x64/wipter-app-amd64.deb && \
     apt install -y /tmp/wipter.deb && apt install -f -y && rm /tmp/wipter.deb && \
     mkdir -p /var/run/sshd /root/.vnc /root/.config/openbox && \
     sed -i 's/#Port 22/Port 22222/' /etc/ssh/sshd_config && \
